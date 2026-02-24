@@ -37,7 +37,7 @@ Shesh porjonto appendChild() ba onno similar method use kore element-ta ke DOM e
 Ans : Event Bubbling holo emon ekta process, jekhane kono child element e event ghotle sheta dhape dhape tar parent, tarpor grandparent ebong uporer dike thaka onnano element e choriye jai, shohoj bhabe bolle, event nicher element theke uporer dike uthte thake — etakei Event Bubbling bola hoi.
 
 
-4. What is Event Delegation in JavaScript? Why is it useful?
+## 4. What is Event Delegation in JavaScript? Why is it useful?
 
 Ans  : Event Delegation holo emon ekta technique, jekhane parent element e ekta event listener boshiye tar child element gulo ke control kora hoi, Eta dorkar karon:
 
@@ -48,7 +48,7 @@ Ans  : Event Delegation holo emon ekta technique, jekhane parent element e ekta 
 3. Pore dynamically toiri kora element gulo teo event thik moto kaj kore.
 
 
-5. What is the difference between preventDefault() and stopPropagation() methods?
+## 5. What is the difference between preventDefault() and stopPropagation() methods?
 
 
 Ans  : preventDefault() browser er default kaj bondho kore, dhoron, form submit korle page reload hoi ba link e click korle onno page e chole jay, ei default behaviour ta eta bondho kore.
