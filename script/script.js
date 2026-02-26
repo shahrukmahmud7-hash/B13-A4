@@ -39,16 +39,23 @@ function calculateCount() {
 function filterCards(status) {
   currentStatus = status;
 
-  cards.forEach((card) => {
-    if (card.dataset.status === status) {
-      card.classList.remove("hidden");
-    } else {
+   cards.forEach((card) => {
+    if (status === "delete") {
       card.classList.add("hidden");
     }
+    if (status === "all") {
+      card.classList.remove("hidden");
+    } else {
+      if (card.dataset.status === status) {
+        card.classList.remove("hidden");
+      } else {
+        card.classList.add("hidden");
+      }
+    }
   });
-
   checkEmptyState();
 }
+
 
 function checkEmptyState() {
   const visibleCards = [...cards].filter(
@@ -57,7 +64,8 @@ function checkEmptyState() {
 
   const emptyMessage = document.getElementById("emptyMessage");
 
-  if (visibleCards.length === 0) {
+
+  if (visibleCards.length === 0 || allCards.children.length === 0) {
     emptyMessage.classList.remove("hidden");
     emptyMessage.classList.add("flex");
   } else {
@@ -65,6 +73,7 @@ function checkEmptyState() {
     emptyMessage.classList.add("hidden");
   }
 }
+
 
 // -----------------------
 // BUTTON STYLE TOGGLE
@@ -107,13 +116,19 @@ allCards.addEventListener("click", function (event) {
   }
 
   // DELETE BUTTON
-  if (event.target.closest(".btn-delete")) {
+ if (event.target.closest(".btn-delete")) {
+  if (card.dataset.status === "all") {
+    card.dataset.status = "delete";
+    card.remove();
+  } else {
     card.dataset.status = "all";
     card.querySelector("span").innerText = "NOT APPLIED";
   }
+}
 
   calculateCount();
   filterCards(currentStatus);
 });
 
-calculateCount();
+calculateCount();  
+
